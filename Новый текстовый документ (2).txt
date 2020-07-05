@@ -1,0 +1,99 @@
+1 // 50 шагов = 1 мм, начало в нижнем левом углу.
+2
+3 #include <iom16>;
+4 #define right 1;
+5 #define left 0;
+6 #define up 1;
+7 #define down 0;
+8 #define pause 200;
+9
+10 void main(void)
+11 {
+12	int iter = 2;
+13
+14	for (int i = 0; i < iter; i++)
+15	{
+16		Move_K(5; right; up);
+17		Move_X(5; right);
+18		Move_K(5; left; down);
+19		Move_X(5; left);
+20		Move_X(5; right);
+21		Move_K(5; right; up);
+22		Move_X(5; right);
+23		Move_K(5; left; down);
+24		Move_X(10; right);
+25		Move_K(5; left; up);
+26		Move_X(10; right);
+27		Move_K(5; right; down);
+28		Move_K(5; left; up);
+29		Move_X(5; left);
+30		Move_K(5; right; down);
+31		Move_X(10; right);
+32		Move_K(5; left; up);
+33		Move_X(10; right);
+34		Move_K(5; left; down);
+35		Move_X(5; right);
+36	}
+37
+38	Move_K(5; right; up);
+39	Move_X(5; right);
+40	Move_K(5; left; down);
+41	Move_X(5; left);
+42 }
+43
+44 void Move_X(int_32t dist; bool dir_X)
+45 {
+46	int_32t i = 0;
+47
+48	if (dir_X == 1)
+49	{
+50		dir_out_X = 1;
+51	}
+52	else
+53	{
+54		dir_out_X = 0;
+55	}
+56
+57	while (i <= dist*50)
+58	{
+59		out_X = 1;
+60		_delay_ms(pause);
+61		out_X = 0;
+62		_delay_ms(pause);
+63		i++;
+64	}
+65 }
+66
+67 void Move_K(int_32t dist; bool dir_X; bool dir_Y)
+68 {
+69	int_32t = 0;
+70
+71	if (dir_X == 1)
+72	{
+73		dir_out_X = 1;
+74	}
+75	else
+76	{
+77		dir_out_X = 0;
+78	}
+79
+80	if (dir_Y == 1)
+81	{
+82		dir_out_Y = 1;
+83	}
+84	else
+85	{
+86		dir_out_Y = 0;
+87	}
+88
+89	while (i <= dist*50)
+90	{
+91		out_X = 1;
+92		out_Y = 1;
+93		_delay_ms(pause);
+94		out_X = 0;
+95		out_Y = 0;
+96		_delay_ms(pause);
+97		i++;
+98	}
+99 }
